@@ -37,7 +37,7 @@ public class RoleFilter implements Filter {
 		String path = request.getRequestURI();
 		String method = request.getMethod();
 		String token = request.getHeader("Authorization");
-		boolean filter0 = !(path.equals("/account") && "POST".equals(method));
+		boolean filter0 = !(path.equals("/account") && ("POST".equals(method)) || "GET".equals(method));
 		boolean filter1 = !path.startsWith("/forum/posts");
 		boolean filter2 = path.matches("/account/.+") && "DELETE".equals(method);
 		boolean filter3 = path.matches("/account/.+/.+") && "PUT".equals(method);
